@@ -1,0 +1,150 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="user.master.cs" Inherits="user_user" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>| Toy Shop</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prettyPhoto.css" rel="stylesheet">
+    <link href="../css/price-range.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+    <asp:ContentPlaceHolder ID="Head_content" runat="server"></asp:ContentPlaceHolder>
+
+    <style>
+        .mainmenu ul li a:hover,
+        .mainmenu ul li a.active,
+        .shop-menu ul li a.active {
+            background: none;
+            color: blue;
+        }
+
+        a#scrollUp {
+            bottom: 0px;
+            right: 10px;
+            padding: 5px 10px;
+            background: #3d6797;
+            color: #FFF;
+            -webkit-animation: bounce 2s ease infinite;
+            animation: bounce 2s ease infinite;
+        }
+
+        .add-to-cart:hover {
+            background: #428bca;
+            border: 0 none;
+            border-radius: 0;
+            color: #FFFFFF;
+        }
+
+        .header-bottom {
+            padding-bottom: 5px;
+            padding-top: 0px;
+        }
+    </style>
+
+</head>
+<!--/head-->
+
+<body>
+    <form id="form1" runat="server">
+
+        <header id="header" style="margin-top: -20px;width:0px;">
+            <!--header-->
+
+            <div class="header-middle">
+                <!--header-middle-->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 clearfix">
+                            <div class="logo pull-left" style="margin-top: -20px">
+                                <a href="index.aspx">
+                                    <h1><span style="color: #ff1d1d">My- </span ><span style="color: #1d2aff">Toy Shop</span> </h1>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-8 clearfix">
+                            <div class="shop-menu clearfix pull-right">
+                                <ul class="nav navbar-nav">
+                                    <li><a href="index.aspx" class="active">Toys</a></li>
+                                    <li><a href="contactus.aspx" class="active">Contact Us</a></li>
+
+
+                                    <%
+                                        if (Session["name"] == null)
+                                        {
+                                    %>
+                                    <li><a href="login.aspx"><i class="fa fa-lock"></i>Login</a></li>
+                                    <%
+                                        }
+                                        else
+                                        {
+                                    %>
+                                    <li><a href="Account_details.aspx"><i class="fa fa-user"></i><% Response.Write(Session["name"]); %></a></li>
+                                    <li><a href="MyOrders.aspx"><i class="fa fa-crosshairs"></i>My Toys</a></li>
+                                    <li><a href="cart.aspx"><i class="fa fa-shopping-cart"></i>My Cart</a></li>
+                                    <li><a href="logout.aspx"><i class="fa fa-lock"></i>Logout</a></li>
+                                    <%  
+                                            
+                                        }
+                                    %>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/header-middle-->
+
+            
+            <!--/header-bottom-->
+        </header>
+        <!--/header-->
+
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+
+
+        <footer id="footer">
+            <!--Footer-->
+
+           
+
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <p class="pull-left">Copyright © 2013 Pankaj -Toy Shop Inc. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+        <!--/Footer-->
+
+
+
+        <script src="../js/jquery.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/jquery.scrollUp.min.js"></script>
+        <script src="../js/price-range.js"></script>
+        <script src="../js/jquery.prettyPhoto.js"></script>
+        <script src="../js/main.js"></script>
+    </form>
+
+</body>
+</html>
